@@ -111,7 +111,7 @@
 
 - 분산버전관리시스템(Git)에서
 
-  
+  <image입력>
 
 - 'git commit'의 message를 title + content로 주고자 할 때
 
