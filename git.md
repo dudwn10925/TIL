@@ -123,19 +123,30 @@
 ## Except
 
 - `git restore` : working directory 내에서 가장 최근 버전의 파일로 복구, 신중히 사용할 것
+
 - `git restore --staged` : staging area --> working directory로 파일 이동
+
 - `git rm --cached` : Git에 있는 파일 삭제 (untracked file)
+
 - `git rm --cached -r` : Git 내의 모든 파일을 재귀적으로 삭제
+
 - `git commit --amend`
   - 방금 commit한 commit message 변경
   - 바로 직전에 commit한 것과 같은 commit message로 commit
+  
 - `git diff` : working directory & staging area, working directory & repository 비교
+
 - `git diff --staged` : staging area & repository 비교
-- `git reset` : <commit ID>를 기준으로 최근 버전들을 삭제, time slip to <commit ID>
+
+- `git reset` : `<commit ID>`를 기준으로 최근 버전들을 삭제, time slip to `<commit ID>`
+  
   - `git reset --hard <commit ID>` : 모두 삭제
   - `git reset --soft <commit ID>` : repository만 삭제
   - `git reset --mixed <commit ID>` : staging area와 repository 삭제
-- `git revert $..%` : commit $ 부터 commit % 까지의 이력을 복원, commit message는 그대로.
+  
+- `git revert $..%` : commit $ 부터 commit % 까지의 이력을 복원(commit $는 제외),
+
+  ​								 commit message는 그대로.
 
 ## ex)
 
