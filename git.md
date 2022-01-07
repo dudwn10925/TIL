@@ -131,14 +131,11 @@
   - 바로 직전에 commit한 것과 같은 commit message로 commit
 - `git diff` : working directory & staging area, working directory & repository 비교
 - `git diff --staged` : staging area & repository 비교
-- `git reset` : <commit ID>를 기준으로 최근 버전들을 삭제, time slip
+- `git reset` : <commit ID>를 기준으로 최근 버전들을 삭제, time slip to <commit ID>
   - `git reset --hard <commit ID>` : 모두 삭제
   - `git reset --soft <commit ID>` : repository만 삭제
   - `git reset --mixed <commit ID>` : staging area와 repository 삭제
-- `git reflog` : reset 명령어 조회
-- `git revert $..%` : commit $ 부터 commit % 까지 삭제
-
-
+- `git revert $..%` : commit $ 부터 commit % 까지의 이력을 복원, commit message는 그대로.
 
 ## ex)
 
