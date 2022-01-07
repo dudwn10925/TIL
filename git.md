@@ -54,15 +54,13 @@
 
      - repository : staging area에 있던 파일 및 폴더의 변경사항을 저장하는 곳
 
-       ![git_work](git/src=http%253A%252F%252Fblogfiles.naver.net%252FMjAxOTAyMjdfMjgg%252FMDAxNTUxMjI1MzEyOTE0.9g9R2dJrqgPVZ00cHGKxs_JETES6BCum8XxWMzl1yBUg.IxtC5sAMAf-PboVDCCCXXLrRgVlH9rkdRQ2DJrm0yUYg.PNG.gmkjh74%252F1.png&type=sc960_832)
-
-       ---
-
-       
+       ![Git_로컬저장소](https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTAyMjdfMjgg%2FMDAxNTUxMjI1MzEyOTE0.9g9R2dJrqgPVZ00cHGKxs_JETES6BCum8XxWMzl1yBUg.IxtC5sAMAf-PboVDCCCXXLrRgVlH9rkdRQ2DJrm0yUYg.PNG.gmkjh74%2F1.png&type=sc960_832)
 
    - command
 
      `git init` : 현재 작업 중인 directory를 Git으로 관리, '.git'파일 생성
+
+     `rm -rf .git` : 'git init' 취소
 
      `git remote add <원격 저장소 name> <github repository address>` : 원격저장소 등록
 
@@ -74,12 +72,13 @@
 
      실제 폴더와 working directory에 존재
 
-     `git log --oneline` : 'git commit -m "~"'이 잘 되었는지 확인
+     `git log --all --oneline --graph` : 'git commit -m "~"'이 잘 되었는지 확인, branch 관련 그래프
 
-     `git push -u <원격 저장소 name> master` : 원격저장소에 업로드, 이후부터 `git push`만 입력
+     `git log -1` : 최신 버전 log 1개만 보임
+
+     `git push -u <원격 저장소 name> <branch name>` : 원격저장소에 업로드, 이후부터 `git push`만 입력
 
    - repository name(GitHub) = directory name
-
    - `vi .gitignore`
 
      - '.gitignore'에 쓰는 파일들은 무시하고 원격저장소에 업로드
@@ -101,17 +100,61 @@
 
 
 
+## branch
+
+- 'branch' = 작업 공간
+
+  같은 파일과 폴더로 서로 다른 작업을 하고 싶은 경우 사용
+
+- command
+
+  `git branch` : branch 조회 or 생성 (branch 생성 전 최소 1번 이상 commit해야 함)
+
+  `git switch` (= git checkout) : branch 이동
+
+  `git switch -c` : branch 생성 + 이동
+
+  `git branch -d` : branch 삭제
+
+  `git merge` : branch 병합, Merge 이후 commit은 `git commit`
+
+
+
+## Except
+
+- `git restore` : working directory 내에서 가장 최근 버전의 파일로 복구, 신중히 사용할 것
+- `git restore --staged` : staging area --> working directory로 파일 이동
+- `git rm --cached` : Git에 있는 파일 삭제 (untracked file)
+- `git rm --cached -r` : Git 내의 모든 파일을 재귀적으로 삭제
+- `git commit --amend`
+  - 방금 commit한 commit message 변경
+  - 바로 직전에 commit한 것과 같은 commit message로 commit
+- `git diff` : working directory & staging area, working directory & repository 비교
+- `git diff --staged` : staging area & repository 비교
+- `git reset` : <commit ID>를 기준으로 최근 버전들을 삭제, time slip
+  - `git reset --hard <commit ID>` : 모두 삭제
+  - `git reset --soft <commit ID>` : repository만 삭제
+  - `git reset --mixed <commit ID>` : staging area와 repository 삭제
+- `git reflog` : reset 명령어 조회
+- `git revert $..%` : commit $ 부터 commit % 까지 삭제
+
+
+
 ## ex)
 
 - 파일 트리에서
 
-  ![파일트리](git/Root-Directory.png)
+  ![파일 트리](git/Root-Directory-16415651450506.png)
 
   **만약 ROOT를 git저장소로 생성하였다면(ROOT 폴더 내에 .git이 있음) MEDIA를 git저장소로 생성할 수 없음**
 
-- 분산버전관리시스템(Git)에서
+- Git 즉 로컬저장소에서 파일이나 폴더를 ~까지 진행하였다면 파일이나 폴더는 ~에 있다
 
-  <image입력>
+  git commit : 실제 폴더, working directory, repository
+
+  git add : 실제 폴더, working directory, staging area
+
+  +) commit이 완료된 파일이나 폴더를 수정했다면 그것은 working directory에 있음
 
 - 'git commit'의 message를 title + content로 주고자 할 때
 
