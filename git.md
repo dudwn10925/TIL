@@ -96,7 +96,7 @@
 
 ​																'git init'과 'git remote add'는 이미 수행된 상태, `.`을 추가하면 바로 복제
 
-- `git pull <원격 저장소 name> master` : 원격저장소에서 가져오기
+- `git pull <원격 저장소 name> <branch name>` : 원격저장소에서 가져오기
 
 
 
@@ -117,6 +117,8 @@
   `git branch -d` : branch 삭제
 
   `git merge` : branch 병합, Merge 이후 commit은 `git commit`
+  
+- 파일이나 폴더가 repository 즉, commit을 해야 다른 branch에 영향이 안 감!
 
 
 
