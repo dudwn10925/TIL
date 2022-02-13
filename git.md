@@ -62,7 +62,9 @@
 
      `rm -rf .git` : 'git init' 취소
 
-     `git remote add <원격 저장소 name> <github repository address>` : 원격저장소 등록
+     `git remote add <원격 저장소 name> <github repository address>` : 원격 저장소 등록
+
+     `git remote rm origin`: 원격 저장소 origin 삭제
 
      `git add` : working directory -> staging area
 
@@ -79,6 +81,7 @@
      `git push -u <원격 저장소 name> <branch name>` : 원격저장소에 업로드, 이후부터 `git push`만 입력
 
    - repository name(GitHub) = directory name
+
    - `vi .gitignore`
 
      - '.gitignore'에 쓰는 파일들은 무시하고 원격저장소에 업로드
